@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conact Management</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-box">
+        <h2>Tambah Contact</h2>
+
+        <label>Nama</label>
+        <input type="text" id="nama""/>
+
+        <label>Nomor Telepon</label>
+        <input type="text"id="telepon"/>
+
+        <button onclick="tambahData()">Submit</button>
+        <button onclick="reset()">Reset</button>
+      </div>
+
+      <div class="table-box">
+        <h2>Daftar Contact</h2>
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Nomor Telepon</th>
+            </tr>
+          </thead>
+          <tbody id="dataTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

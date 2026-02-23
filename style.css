@@ -1,0 +1,41 @@
+body {
+    font-family: Arial;
+    background-color: greenyellow;
+}
+
+.container {
+    display: flex;
+    gap: 40px;
+    padding: 20px;
+}
+
+.form-box, .table-box {
+    width: 50%;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 6px 12px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color:;
+}
+
+td, th {
+    padding: 8px;
+    text-align: left;
+}
+
