@@ -24,6 +24,15 @@ function tambahData() {
     editIndex = -1;
   }
 
+    // SORT ASCENDING
+  contacts.sort(function(a, b) {
+    return a.nama.localeCompare(b.nama);
+  });
+
+  localStorage.setItem("contacts", JSON.stringify(contacts));
+  tampilData();
+  resetForm();
+
   localStorage.setItem("contacts", JSON.stringify(contacts));
   tampilData();
   resetForm();
