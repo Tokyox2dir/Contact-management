@@ -1,6 +1,8 @@
 let contacts = [];
 let editIndex = -1;
 
+let sortAscending = true; // true = A-Z, false = Z-A
+
 window.onload = function () {
   if (localStorage.getItem("contacts")) {
     contacts = JSON.parse(localStorage.getItem("contacts"));
@@ -24,10 +26,7 @@ function tambahData() {
     editIndex = -1;
   }
 
-    // SORT ASCENDING
-  contacts.sort(function(a, b) {
-    return a.nama.localeCompare(b.nama);
-  });
+  sortContacts();
 
   localStorage.setItem("contacts", JSON.stringify(contacts));
   tampilData();
@@ -74,4 +73,24 @@ function resetForm() {
   document.getElementById("nama").value = "";
   document.getElementById("telepon").value = "";
   editIndex = -1;
+}
+
+function sortContacts() {
+  contacts.sort(function (a, b) {
+    if (sortAscending) {
+      return a.nama.localeCompare(b.nama);
+    } else {
+      return b.nama.localeCompare(a.nama);
+    }
+  });
+}
+function toggleSort() {
+  sortAscending = !sortAscending;
+
+  sortContacts();
+  localStorage.setItem("contacts", JSON.stringify(contacts));
+  tampilData();
+
+  // ubah icon
+  document.getElementById("sortBtn").innerText = sortAscending ? "⬆️" : "⬇️";
 }
