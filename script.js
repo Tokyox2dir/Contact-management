@@ -1,6 +1,5 @@
 let contacts = [];
 let editIndex = -1;
-
 let sortAscending = true; // true = A-Z, false = Z-A
 
 window.onload = function () {
@@ -31,10 +30,6 @@ function tambahData() {
   localStorage.setItem("contacts", JSON.stringify(contacts));
   tampilData();
   resetForm();
-
-  localStorage.setItem("contacts", JSON.stringify(contacts));
-  tampilData();
-  resetForm();
 }
 
 function tampilData() {
@@ -43,15 +38,15 @@ function tampilData() {
 
   for (let i = 0; i < contacts.length; i++) {
     table.innerHTML += `
-            <tr>
-                <td>${contacts[i].nama}</td>
-                <td>${contacts[i].telepon}</td>
-                <td>
-                    <button onclick="editData(${i})">Edit</button>
-                    <button onclick="hapusData(${i})">Delete</button>
-                </td>
-            </tr>
-        `;
+      <tr>
+        <td>${contacts[i].nama}</td>
+        <td>${contacts[i].telepon}</td>
+        <td>
+          <button onclick="editData(${i})">Edit</button>
+          <button onclick="hapusData(${i})">Delete</button>
+        </td>
+      </tr>
+    `;
   }
 }
 
@@ -84,6 +79,7 @@ function sortContacts() {
     }
   });
 }
+
 function toggleSort() {
   sortAscending = !sortAscending;
 
@@ -91,6 +87,5 @@ function toggleSort() {
   localStorage.setItem("contacts", JSON.stringify(contacts));
   tampilData();
 
-  // ubah icon
   document.getElementById("sortBtn").innerText = sortAscending ? "⬆️" : "⬇️";
 }
